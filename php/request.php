@@ -1,6 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: http://localhost:3000");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, DELETE");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Content-type: application/json; charset=utf-8');
 include_once 'classes/Database.php';
@@ -46,6 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	createObjectToDb($data, $db); //insert to database calls automatically upon render
 } else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		echo $db->select();
+} else if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+		$data = json_decode(file_get_contents('php://input'), true);
+		$db->deleteThem($data);
+		echo json_encode('success?');
 } else {
   // Return an error message
   echo 'Invalid request method';

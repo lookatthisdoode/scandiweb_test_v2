@@ -12,9 +12,10 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        <NavigationHome onRouteChange={this.props.onRouteChange}/>
-        <button onClick={this.props.getProducts}>TESTING</button>
-        <button onClick={this.props.deleteByIds}>delete</button>
+      <button onClick={() => this.props.deleteByIds()}>deleteshit</button> 
+        <NavigationHome 
+          onRouteChange={this.props.onRouteChange} 
+          deleteByIds={this.props.deleteByIds}/>
         <div className="divider"></div>
         <div id="containerProduct" className="container_products">
           {

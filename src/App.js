@@ -9,7 +9,6 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      test: 'check1',
       route: 'home',
       products: []
     }
@@ -21,8 +20,7 @@ class App extends React.Component {
   }
 
   
-
-  getProducts = () => {
+  getProducts() {
     //const url = `/request.php`; 
     fetch(apiurl, {
       method: "GET",
@@ -40,41 +38,39 @@ class App extends React.Component {
 
   
   deleteByIds()  {
+    console.log(this.state) //почему сука я не могу
     let divcount = document.getElementById('containerProduct').children.length;
-    let arraywhattodelete = [];
-
+    let deleteIds = [];
     for (let i=1; i<divcount+1; i++){
-        if (document.getElementById('checkbox'+i).checked === true) {
-            arraywhattodelete.push(i);
-        }
+      if (document.getElementById('checkbox' + i).checked === true) {
+          deleteIds.push(i);
+      }
     }
-    //use map here 
-    //documentGet all of them and map through it
 
     fetch(apiurl, {
-      method: 'POST',
-      body: JSON.stringify(arraywhattodelete)
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(deleteIds)
     })
-      .then(response => response.text())
-      .then(result => {
-        console.log(result);
+    .then(data => data.json())
+    .then(responce => {
+      console.log(responce)
       })
-      .catch(error => {
-        console.error(error);
-      });
-
-}
-
+    .catch(error => {
+    console.error(error);
+    })
+  }
 
   componentDidMount() {
     this.getProducts()
+    console.log(this.state.route)
   }
 
-  //delete products from db
 
   //addproduct to db : it will collect all the values but omit empty ones and render will do the same
   //checksku : check if sku exist or what (for a formhandler)
-  //arrangeids : needed for my checkbox checkers
 
 
   

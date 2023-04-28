@@ -1,3 +1,5 @@
+
+
 .home {
 	display: flex;
 	flex-direction: column;
@@ -7,7 +9,7 @@
 
 
 .navigation{
-	width: 80%;
+	width: 81%;
 	margin: auto;
 	display: flex;
 	flex-direction: row;
@@ -17,29 +19,95 @@
 
 .navigation > button {
 	border: none;
-	background: #815B5B;
+	background: ivory;
+	border: 2px solid rgb(233, 79, 55);
 	padding: 10px;
+	border-radius: 10px;
 	margin-top: 10px;
-	border-radius: 5px;
 }
 
 .navigation > button:hover {
-	background: #594545;
+	background-color: r;
 }
 
 .divider {
-	width: 80%;
-	height: 5px;
-	background: #815B5B;
+	width: 81%;
+	height: 3px;
+	background-color: rgb(233, 79, 55);
 	border-radius: 999px;
-	margin: 10px auto;
+	margin: 20px auto;
 }
+
+
+/*DISPLAY PRODUCTS*/
+
 
 .container_products {
 	width: 80%;
-  margin: 50px auto;
+  margin: 0 auto;
 	display: flex;
 	flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+
+.product-card {
+  background: ivory;
+	box-shadow: 2px 2px 0 3px rgb(233, 79, 55);
+	border-radius: 20px;
+  width: 180px;
+  padding: 20px 20px 0;
+  margin: 0 0 50px 0;
+}
+
+.delete-checkbox {
+  margin: 0 10px 0 0 ;
+  width:15px;
+  height:15px;
+  float: left;
+  text-decoration: ;
+}
+
+
+.delete-checkbox:checked {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.delete_text {
+	text-align: left;
+  color: red;
+  font-size: 0.7em;  
+}
+
+
+.product-info {
+  font-size: 1.3em;
+  color: rgb(233, 79, 55);
+  padding: 10px 0 20px;
+}
+
+.product-info span {
+	color:rgb(57, 62, 65)
+}
+
+@keyframes shake {
+  10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+      transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+      transform: translate3d(4px, 0, 0);
+  }
 }

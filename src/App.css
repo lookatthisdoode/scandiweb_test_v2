@@ -1,3 +1,10 @@
+:root {
+    --ivory: rgb(246, 247, 235);
+    --cinnabar: rgb(233, 79, 55):
+    --onyx: rgb(57, 62, 65);
+    --steel-blue: rgb(63, 136, 197); 
+}
+
 .w80 {
   width: 80%;
 }

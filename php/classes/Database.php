@@ -41,41 +41,30 @@ class Database
         return json_encode($rows);
     }
 
-    public function insert($sql)
-    {   
-        mysqli_query($this->conn, $sql);
-    }
 
     public function arrangeId()
     {
         $counter = 1;
-        //get all data just to get qty
-        $data = $this->select();
-        while ($row = mysqli_fetch_row($data)) {
-            mysqli_query($this->conn, "UPDATE scandiweb_products SET id = $counter WHERE id=$row[0]");
+        $data = json_decode($this->select(), true);
+        foreach ($data as $row) {
+            mysqli_query($this->conn, "UPDATE scandiweb_products SET id = $counter WHERE id=$row[id]");
             $counter ++;
         }
     }
-    //maybe just use product id to render checkboxes
 
 
-
-    public function deleteThem (array $ids)
-    {
-        $idstodelete = "";
-        // formats array into sql string
-        foreach ($ids as $key => $value) {
-            if ($key == count($ids)-1) {
-                $idstodelete .= intval($value);
-            } else {
-                $idstodelete .= $value . ", ";
-            }
-        }
-
-        $sql = "DELETE FROM scandiweb_products WHERE id IN ( $idstodelete )";
+    public function insert($sql)
+    {   
         mysqli_query($this->conn, $sql);
         $this->arrangeId();
-        $this->connect()->close();
+    }
+
+    public function deleteThem (array $ids)
+    {   
+        $idsToDelete = implode(',', $ids); //convert to string
+        $sql = "DELETE FROM scandiweb_products WHERE id IN ( $idsToDelete )";
+        mysqli_query($this->conn, $sql);
+        $this->arrangeId();
     }
 
 
