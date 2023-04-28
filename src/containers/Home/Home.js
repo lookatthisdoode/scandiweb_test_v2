@@ -12,7 +12,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-      <button onClick={() => this.props.deleteByIds()}>deleteshit</button> 
+      <button onClick={() => this.props.deleteByIds('hui')}>deleteshit</button> 
         <NavigationHome 
           onRouteChange={this.props.onRouteChange} 
           deleteByIds={this.props.deleteByIds}/>

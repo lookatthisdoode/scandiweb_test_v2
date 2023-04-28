@@ -37,8 +37,9 @@ class App extends React.Component {
   }
 
   
-  deleteByIds()  {
-    console.log(this.state) //почему сука я не могу
+  deleteByIds(message)  {
+    console.log(message)
+    console.log(this.state) //почему сука я не могу // а неь миогу
     let divcount = document.getElementById('containerProduct').children.length;
     let deleteIds = [];
     for (let i=1; i<divcount+1; i++){
@@ -65,7 +66,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getProducts()
-    console.log(this.state.route)
   }
 
 
@@ -89,7 +89,7 @@ class App extends React.Component {
         ? <Home products={products} 
             onRouteChange={this.onRouteChange} 
             getProducts={this.getProducts}
-            deleteByIds={this.deleteByIds}
+            deleteByIds={() => this.deleteByIds()}
           />
         : <AddProduct onRouteChange={this.onRouteChange}/>
         }
