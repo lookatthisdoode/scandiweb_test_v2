@@ -13,7 +13,7 @@ class Home extends React.Component {
     return (
       <div className="home">
         <NavigationHome onRouteChange={this.props.onRouteChange}/>
-        <button onClick={this.props.getProducts}>server</button>
+        <button onClick={this.props.getProducts}>TESTING</button>
         <button onClick={this.props.deleteByIds}>delete</button>
         <div className="divider"></div>
         <div id="containerProduct" className="container_products">
