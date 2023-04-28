@@ -1,0 +1,45 @@
+.home {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+}
+
+
+
+.navigation{
+	width: 80%;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: right;
+	gap: 10px;
+}
+
+.navigation > button {
+	border: none;
+	background: #815B5B;
+	padding: 10px;
+	margin-top: 10px;
+	border-radius: 5px;
+}
+
+.navigation > button:hover {
+	background: #594545;
+}
+
+.divider {
+	width: 80%;
+	height: 5px;
+	background: #815B5B;
+	border-radius: 999px;
+	margin: 10px auto;
+}
+
+.container_products {
+	width: 80%;
+  margin: 50px auto;
+	display: flex;
+	flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

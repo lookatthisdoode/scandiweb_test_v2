@@ -1,0 +1,54 @@
+.product-card {
+    background: #9E7676;
+    box-shadow: 0px 2px 5px 1px #594545;
+    border-radius: 20px;
+    width: 200px;
+    padding: 20px 20px 0;
+    margin: 0 0 20px 0;
+}
+
+.delete-checkbox {
+    position:relative;
+    margin: 0 10px 0 0 ;
+    width:20px;
+    height:20px;
+    float: left;
+}
+
+.delete-checkbox:checked {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+.delete_text {
+    color: white;
+    font-size: 1em;  
+    padding: 5px 0 0 ;
+}
+
+
+.product-info {
+    font-size: 1.3em;
+    color: #FFF8EA;
+    padding: 20px 0;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
