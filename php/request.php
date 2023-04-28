@@ -41,7 +41,7 @@ function createObjectToDb($data, $db) {
 
 
 //MAIN ENDPOINT
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && ) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$data = json_decode(file_get_contents('php://input'), true);  //returns body of post request
 	createObjectToDb($data, $db); //insert to database calls automatically upon render
 } else if ($_SERVER['REQUEST_METHOD'] === 'GET') {

@@ -38,6 +38,7 @@ class App extends React.Component {
     .catch(error => console.error(error));
   }
 
+  
   deleteByIds()  {
     let divcount = document.getElementById('containerProduct').children.length;
     let arraywhattodelete = [];
