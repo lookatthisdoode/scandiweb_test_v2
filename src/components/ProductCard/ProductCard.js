@@ -34,16 +34,6 @@ const ProductCard = (props) => {
       </div>
     </div>
   )
-  // return (
-  //   <div className="card" key={key}>
-  //     <input id={'checkbox' + product.id } type="checkbox"/>
-  //     <div className="sku">{product.sku}</div>
-  //     <div className="name">{product.name}</div>
-  //     <div className="type">{product.type}</div>
-  //     <div className="price">{product.price + '$'}</div>
-  //     <div className="size">{product.size}</div>
-  //   </div>
-  // )
 }
 
 export default ProductCard;
