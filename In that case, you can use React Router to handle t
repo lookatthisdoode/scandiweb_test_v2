@@ -1,0 +1,74 @@
+In that case, you can use React Router to handle the routing within your React app. Here's how you can set up your App component to use React Router:
+
+
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import HomePage from './HomePage';
+import AddProductPage from './AddProductPage';
+
+function App() {
+  const [route, setRoute] = useState('home');
+
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <HomePage route={route} setRoute={setRoute} />
+        </Route>
+        <Route exact path="/addproduct">
+          <AddProductPage route={route} setRoute={setRoute} />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
+
+export default App;
+
+
+Here, the App component sets up the BrowserRouter from React Router and defines two routes for the HomePage and AddProductPage components. The HomePage and AddProductPage components are passed a route state variable and a setRoute function as props.
+
+In your HomePage and AddProductPage components, you can use the route and setRoute props to update the route state when the user clicks on a link or button to navigate to a different page. Here's an example of what the HomePage component could look like:
+
+
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+function HomePage({ route, setRoute }) {
+  return (
+    <div>
+      <h1>Home Page</h1>
+      <p>Current route: {route}</p>
+      <Link to="/addproduct" onClick={() => setRoute('addproduct')}>
+        Go to Add Product Page
+      </Link>
+    </div>
+  );
+}
+
+export default HomePage;
+Here, the Link component from React Router is used to create a link to the AddProductPage component. When the link is clicked, the setRoute function is called with the value 'addproduct', which updates the route state variable to 'addproduct'.
+
+Similarly, in your AddProductPage component, you can use the route and setRoute props to update the route state when necessary.
+
+Note that you'll need to install React Router using npm install react-router-dom.
+
+
+
+
+Andrei Radchenko
+so when i put in adress bar server/addproduct it will give me and error because as i said it set up the way that first loads index.php and serves me my react app
+If you try to access server/addproduct directly in the address bar, you will likely get a 404 error because the server is looking for a file named addproduct and can't find it. To handle this, you can set up a fallback route in your server that redirects all requests to your index.php file. This is a common technique for single-page applications that use client-side routing.
+
+The exact way to set up a fallback route will depend on your server configuration. If you are using Apache, for example, you can add the following lines to your .htaccess file in the root of your web directory:
+
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+This will redirect all requests that are not for an existing file to your index.php file, which will then load your React app and handle client-side routing using React Router.
+
+
+
+
+Yes, that's correct. By setting up a fallback route to always serve your index.php file, you ensure that your React app will always be loaded and handle client-side routing using React Router, even when a user navigates directly to a URL that doesn't correspond to an existing file on the server. Your React app can then read the current URL and route accordingly, based on the routes you have defined using React Router.
