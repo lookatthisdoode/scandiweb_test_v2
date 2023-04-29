@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
-//import './ProductCard.css'
+import { Outlet, Link } from 'react-router-dom';
 
-const NavigationAdd = ({onRouteChange}) => {
-  //const { id, sku, name, price, weight, height, picture } = product
-  //const [ isLiked, setIsLiked] = useState(false)
+const NavigationAdd = ({ }) => {
 
   return (
-    <div className="Navigation">
-      <button onClick={ () => onRouteChange('home') }>Save</button>
-      <button onClick={ () => onRouteChange('home') }>Cancel</button>
-    </div>
+    <nav className="navigation-add">
+      <h1>Add Product </h1>
+      <div className="buttons">
+        <button id="Save" onclick="submitform()">Save</button>
+        <Link to={`/`}><button id="goback">CANCEL</button></Link>
+      </div>
+    </nav>
   )
 }
 

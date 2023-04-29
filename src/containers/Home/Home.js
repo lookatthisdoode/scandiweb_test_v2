@@ -65,10 +65,9 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-      <button onClick={() => this.deleteByIds()}>deleteshit</button> 
         <NavigationHome  
           deleteByIds={this.deleteByIds}/>
-        <div className="divider"></div>
+        <div className="divider-home"></div>
         <div id="containerProduct" className="container_products">
           {
             this.state.products.map((product, key) => {
