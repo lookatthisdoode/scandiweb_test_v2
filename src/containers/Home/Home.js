@@ -3,8 +3,8 @@ import './Home.css'
 import NavigationHome from '../../components/NavigationHome/NavigationHome';
 import ProductCard from '../../components/ProductCard/ProductCard';
 
-const apiurl = '/request.php'
-// const apiurl = 'http://localhost/request.php'
+//const apiurl = '/request.php'
+const apiurl = 'http://localhost/request.php'
 
 class Home extends React.Component {
   constructor() {
@@ -14,6 +14,7 @@ class Home extends React.Component {
       redirect: false,
     }
   }
+
 
   getProducts() {
     fetch(apiurl, {
@@ -60,7 +61,7 @@ class Home extends React.Component {
     console.error(error);
     })
     //reloads the page to get new array of products from DB
-    //window.location.reload(false); //worked like a charm
+    window.location.reload(false); //worked like a charm
   }
 
   componentDidMount() { 
