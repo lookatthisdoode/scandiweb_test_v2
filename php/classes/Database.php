@@ -25,13 +25,6 @@ class Database
     }
 
 
-    public function getData()   //old one for dev purposes(display before react)
-    {
-        $result = mysqli_query($this->conn, "select * from scandiweb_products");
-        return $result;
-    }
-
-
     public function select()    // new, already returning a json
     {
         $result = mysqli_query($this->conn, "select * from scandiweb_products");

@@ -3,7 +3,8 @@ import './Home.css'
 import NavigationHome from '../../components/NavigationHome/NavigationHome';
 import ProductCard from '../../components/ProductCard/ProductCard';
 
-const apiurl = 'http://localhost/request.php'
+const apiurl = '/request.php'
+// const apiurl = 'http://localhost/request.php'
 
 class Home extends React.Component {
   constructor() {
@@ -15,7 +16,6 @@ class Home extends React.Component {
   }
 
   getProducts() {
-    //const url = `/request.php`; //real url
     fetch(apiurl, {
       method: "GET",
       mode: "cors", //change to same origin before deploy
@@ -42,9 +42,11 @@ class Home extends React.Component {
           deleteIds.push(i);
       }
     }
+    console.log(deleteIds)
     //request API to delete 
     fetch(apiurl, {
-    method: 'DELETE',
+    method: 'POST',
+    mode: "same-origin",
     headers: {
       'Content-Type': 'application/json'
     },
@@ -58,13 +60,14 @@ class Home extends React.Component {
     console.error(error);
     })
     //reloads the page to get new array of products from DB
-    window.location.reload(false); //worked like a charm
+    //window.location.reload(false); //worked like a charm
   }
 
+  componentDidMount() { 
+    this.getProducts()
+  }
 
   render() {
-    //gets array of products
-    this.getProducts()
     return (
       <div className="home">
         <NavigationHome  

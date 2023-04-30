@@ -21,7 +21,6 @@
     </head>
 
     <body>
-        <p> HAI </p>
         </div id="root"></div>
     </body>
 </html>

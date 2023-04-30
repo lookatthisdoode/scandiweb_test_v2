@@ -6,8 +6,8 @@ const NavigationHome = ({ deleteByIds }) => {
     <div className="navigation-home">
       <h1> Products List</h1>
       <div className="buttons">
-        <Link to={`/addproduct`}><button id="goback">Add Product</button></Link>
-        <button onClick={deleteByIds}>Delete them all</button>
+        <Link to={`/addproduct`}><button id="goback">ADD</button></Link>
+        <button onClick={deleteByIds}>MASS DELETE</button>
       </div>
     </div>
   )
