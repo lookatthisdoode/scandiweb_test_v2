@@ -7,22 +7,29 @@ import AddProduct from './containers/AddProduct/AddProduct';
 import reportWebVitals from './reportWebVitals';
 
 
+//on deply its '/request.php'
+//dev is 'http://localhost/request.php'
+const apiUrl = 'http://localhost/request.php'
+//on deploy change it to 'same' origin
+//dev is cors
+const fetchMode = 'cors'
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Home apiUrl={apiUrl} fetchMode={fetchMode}/>,
   },
   {
     path: "/addproduct",
-    element: <AddProduct />
+    element: <AddProduct apiUrl={apiUrl} fetchMode={fetchMode}/>
   }
 ]);
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RouterProvider router={router} />
+  <RouterProvider router={router}/>
 );
 
 
-//reportWebVitals();
+reportWebVitals();

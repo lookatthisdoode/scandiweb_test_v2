@@ -4,7 +4,7 @@ import NavigationAdd from '../../components/NavigationAdd/NavigationAdd';
 import './AddProduct.css';
 
 //const apiurl = '/request.php'
-const apiurl = 'http://localhost/request.php'
+//const apiurl = 'http://localhost/request.php'
 
 class AddProduct extends React.Component {
   constructor(props) {
@@ -16,33 +16,34 @@ class AddProduct extends React.Component {
         DVD:
         <div>
           Size:
-            <input type='number' name='size' id='size' placeholder='mb' onfocus='blockEDash(this.id)'></input>
+            <input type='number' name='size' id='size' placeholder='mb' onFocus={(e) => this.blockEDash(e.target.id)}></input>
             <input type='hidden' name='product_type' id='product_type' value='DVD'></input>
         </div>,
         Furniture:
         <div>
           Width: 
-            <input type='number' name='width' id='width' placeholder='cm' onfocus='blockEDash(this.id)'></input>
+            <input type='number' name='width' id='width' placeholder='cm' onFocus={(e) => this.blockEDash(e.target.id)}></input>
           Length: 
-            <input type='number' name='length' id='length' placeholder='cm' onfocus='blockEDash(this.id)'></input>
+            <input type='number' name='length' id='length' placeholder='cm' onFocus={(e) => this.blockEDash(e.target.id)}></input>
           Height:
-            <input type='number' name='height' id='height' placeholder='cm' onfocus='blockEDash(this.id)'></input>
+            <input type='number' name='height' id='height' placeholder='cm' onFocus={(e) => this.blockEDash(e.target.id)}></input>
             <input type='hidden' name='product_type' id='product_type' value='Furniture'></input>
         </div>,
         Book:
         <div>
           Weight:
-            <input type='number' name='weight' id='weight' placeholder='kg' onfocus='blockEDash(this.id)'></input>
+            <input type='number' name='weight' id='weight' placeholder='kg' onFocus={(e) => this.blockEDash(e.target.id)}></input>
             <input type='hidden' name='product_type' id='product_type' value='Book'></input>
         </div>
       }
     }
   }
 
+  //checks if given sku already exist inside the DB
   checkSKU(sku){
-    return fetch(apiurl, {
+    return fetch(this.props.apiUrl, {
       method: 'POST',
-      mode: "same-origin",
+      mode:this.props.fetchMode,
       body: JSON.stringify(sku),
       headers: {
         'Content-Type': 'application/json'
@@ -51,6 +52,7 @@ class AddProduct extends React.Component {
     .catch(error=>console.log)
   }
 
+  //replaces all weird characters in number field 
   blockEDash(id){
     var invalidChars = [
         "-", "+", "e",
@@ -65,17 +67,18 @@ class AddProduct extends React.Component {
     })
   }
 
-
+  //bottom form changer
   changeForm(value) {
     this.setState({currentType: value})
   }
 
-  
+  //basically v_1 formhandler, omits html form handling 
   async submitForm(e) {
     e.preventDefault();
 
     var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
+    //defines all fields
     var sku = document.getElementById('sku')
     var name = document.getElementById('name')
     var price = document.getElementById('price')
@@ -108,6 +111,7 @@ class AddProduct extends React.Component {
         if (length) if (length.value === "") throw "Length field is required";
         if (height) if (height.value === "") throw "Height field is required";
 
+        // creates objects that gets passed to db
         const formValues = {
           sku: sku.value,
           name: name.value,
@@ -120,18 +124,20 @@ class AddProduct extends React.Component {
           product_type: type.value,
         };
         
-        fetch(apiurl, {
+        //main submit fetch
+        fetch(this.props.apiUrl, {
           method: 'POST',
           body: JSON.stringify(formValues),
           headers: {
             'Content-Type': 'application/json'
           }
-        }).then(response => {
-          console.log('Response:', response);
-        }).catch(error => {
-          console.error('Error:', error);
+        })
+        .then(response => response.json())
+        .then(data => console.log)
+        .catch(error => {
+          console.error(`Cant add product to db. Error: ${error}`);
         });
-        this.setState({redirect: true})
+        this.setState({ redirect: true })
 
         } catch (e) {
             errorMsg.innerHTML = e;

@@ -3,11 +3,9 @@ import './Home.css'
 import NavigationHome from '../../components/NavigationHome/NavigationHome';
 import ProductCard from '../../components/ProductCard/ProductCard';
 
-//const apiurl = '/request.php'
-const apiurl = 'http://localhost/request.php'
 
 class Home extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       products: [],
@@ -17,9 +15,9 @@ class Home extends React.Component {
 
 
   getProducts() {
-    fetch(apiurl, {
+    fetch(this.props.apiUrl, {
       method: "GET",
-      mode: "cors", //change to same origin before deploy
+      mode: this.props.fetchMode,
       headers: {
         "Content-Type": "application/json",
       }
@@ -45,9 +43,9 @@ class Home extends React.Component {
     }
     console.log(deleteIds)
     //request API to delete 
-    fetch(apiurl, {
+    fetch(this.props.apiUrl, {
     method: 'POST',
-    mode: "same-origin",
+    mode: this.props.fetchMode,
     headers: {
       'Content-Type': 'application/json'
     },
@@ -64,6 +62,7 @@ class Home extends React.Component {
     window.location.reload(false); //worked like a charm
   }
 
+  //jsut gets all products upon first rendering
   componentDidMount() { 
     this.getProducts()
   }

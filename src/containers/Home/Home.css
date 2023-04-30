@@ -1,7 +1,8 @@
 
 .home {
-	background-color: var(--ivory);
-	width: 80%;
+	background-color: var(--cinnabar);
+	width: 100vw;
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -10,8 +11,9 @@
 
 
 .navigation-home{
-	width: 80%;
-	margin: auto;
+	font-family: OverpassB;
+	width: 60%;
+	margin: 0px auto;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -20,8 +22,8 @@
 }
 
 .navigation-home h1 {
-	color: var(--cinnabar);
-	text-shadow: 1px 2px black;
+	color: var(--ivory);
+	text-shadow: 1px 2px var(--onyx);
 }
 .navigation-home .buttons {
 	display: flex;
@@ -29,18 +31,19 @@
 }
 
 .navigation-home .buttons > * {
-	width: 150px;
+	width: 170px;
 	text-align: center;
-	background: ivory;
-	border: 3px solid var(--cinnabar);
+	background: var(--cinnabar);
+	border: 3px solid var(--ivory);
 	padding: 5px 0;
 	border-radius: 999px;
 	margin-top: 10px;
 }
 
 .navigation-home .buttons button , .navigation-home .buttons a button {
+		font-family: OverpassB;
     background: none;
-    color: var(--cinnabar);
+    color: var(--ivory);
     font-size: 1.2em;
 }
 
@@ -53,11 +56,11 @@
 }
 
 .divider-home {
-	width: 80%;
-	height: 3px;
-	background-color: var(--cinnabar);
-	border-radius: 999px;
-  margin: 20px auto;
+	width: 60%;
+	height: 5px;
+	background-color: var(--ivory);
+	border-radius: 5px;
+  margin: 10px auto 20px;
 }
 
 
@@ -65,7 +68,7 @@
 
 
 .container_products {
-	width: 79%;
+	width: 59%;
   margin: 0 auto;
 	display: flex;
 	flex-direction: row;
@@ -76,7 +79,7 @@
 
 .product-card {
   background: ivory;
-	box-shadow: 2px 2px 0 3px rgb(233, 79, 55);
+	box-shadow: 5px 3px 0 5px var(--onyx);
 	border-radius: 20px;
   width: 180px;
   padding: 20px 20px 0;
@@ -113,7 +116,8 @@
 }
 
 .product-info span {
-	color:rgb(57, 62, 65)
+	font-family: OverpassM;
+	color:rgb(57, 62, 65);
 }
 
 @keyframes shake {
