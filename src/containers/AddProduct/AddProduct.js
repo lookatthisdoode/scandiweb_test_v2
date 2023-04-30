@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import NavigationAdd from '../../components/NavigationAdd/NavigationAdd';
 import './AddProduct.css';
 
+//const apiurl = '/request.php'
 const apiurl = 'http://localhost/request.php'
 
 class AddProduct extends React.Component {
@@ -40,7 +41,8 @@ class AddProduct extends React.Component {
 
   checkSKU(sku){
     return fetch(apiurl, {
-      method: 'PUT',
+      method: 'POST',
+      mode: "same-origin",
       body: JSON.stringify(sku),
       headers: {
         'Content-Type': 'application/json'
@@ -86,7 +88,6 @@ class AddProduct extends React.Component {
     var errorMsg = document.getElementById('error')
     errorMsg.innerHTML = ""
     //should be a better way to get all the values from it
-
 
     try {
         if (sku.value === "")               throw "SKU field is required";
