@@ -29,7 +29,7 @@ const ProductCard = (props) => {
           </>
         )}
         {product_type === 'Book' && (
-          <div className="product-weight">Weight: {weight} Kg</div>
+          <div className="product-weight">Weight: <span>{weight} Kg</span></div>
         )}
       </div>
     </div>

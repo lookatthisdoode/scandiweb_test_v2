@@ -21,7 +21,7 @@ class Database
         $this->conn = mysqli_connect($this->host , $this->user , $this->pwd , $this->dbase);
         if (!$this->conn) {
             echo 'nepoluchilos podcluchisa';
-        } //не работает
+        } //не работает проверялка
     }
 
 
@@ -30,6 +30,7 @@ class Database
         $result = mysqli_query($this->conn, "select * from scandiweb_products");
         return $result;
     }
+
 
     public function select()    // new, already returning a json
     {
@@ -42,6 +43,13 @@ class Database
     }
 
 
+    public function insert($sql)
+    {   
+        mysqli_query($this->conn, $sql);
+        $this->arrangeId();
+    }
+
+    
     public function arrangeId()
     {
         $counter = 1;
@@ -53,12 +61,6 @@ class Database
     }
 
 
-    public function insert($sql)
-    {   
-        mysqli_query($this->conn, $sql);
-        $this->arrangeId();
-    }
-
     public function deleteThem (array $ids)
     {   
         $idsToDelete = implode(',', $ids); //convert to string
@@ -68,16 +70,19 @@ class Database
     }
 
 
-
     public function skuExist($sku)
     {
-        $data = $this->select();
-        $isexist = 0;
-        while ($row = mysqli_fetch_row($data)) {
-            if (strtolower($row [1]) === strtolower($sku)) {
-                $isexist = 1;
+        $data = json_decode($this->select(), true);
+        $isexist = 'dont exist';
+        foreach ($data as $row) 
+        {              
+            if (strtolower($row['sku']) === strtolower($sku)) 
+             {
+                $isexist = 'exist';
+                break;
             }
         }
-        return $isexist;  //defo returns true/false
+        return $isexist;
     }
+
 }

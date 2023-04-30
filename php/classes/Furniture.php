@@ -41,7 +41,7 @@ class Furniture extends Product
         $presql = "'$this->sku', '$this->name', '$this->price', '$this->width', '$this->length', '$this->height', '$this->type'";
         $sql = "insert into scandiweb_products (sku, name, price, width, length, height, product_type) values (" . $presql . ")";
 
-        mysqli_query($dbconn->connect(), $sql);
+        mysqli_query($dbconn->conn, $sql);
         $dbconn->arrangeId();
     }
 }

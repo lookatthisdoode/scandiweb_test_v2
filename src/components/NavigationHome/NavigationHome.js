@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Outlet, Link } from 'react-router-dom';
 
-const NavigationHome = ({deleteByIds}) => {
-
+const NavigationHome = ({ deleteByIds }) => {
   return (
     <div className="navigation-home">
       <h1> Products List</h1>

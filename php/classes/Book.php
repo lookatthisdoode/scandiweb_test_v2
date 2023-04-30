@@ -20,14 +20,6 @@ class Book extends Product
         $this->weight = $d;
     }
 
-    public function toHTML()
-    {
-        echo "SKU: " . mb_strtoupper($this->sku) . "<br>";
-        echo "Type: Book<br>";
-        echo "Name: " . $this->name . " <br>";
-        echo "Price: " . $this->price . " $<br>";
-        echo "Weight: " . $this->weight . " Kg<br>";
-    }
 
     public function toDB()
     {
@@ -35,7 +27,7 @@ class Book extends Product
         $presql = "'$this->sku', '$this->name', '$this->price', '$this->weight', '$this->type'";
         $sql = "insert into scandiweb_products (sku, name, price, weight, product_type) values (" . $presql . ")";
 
-        mysqli_query($dbconn->connect(), $sql);
+        mysqli_query($dbconn->conn, $sql);
 
         $dbconn->arrangeId();
     }

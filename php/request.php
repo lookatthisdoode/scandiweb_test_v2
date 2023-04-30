@@ -1,6 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: http://localhost:3000");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS, DELETE");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, DELETE, PUT");
 header("Access-Control-Allow-Headers: Content-Type");
 header('Content-type: application/json; charset=utf-8');
 include_once 'classes/Database.php';
@@ -31,7 +31,8 @@ function makeFurniture(array $x)
   return $newprod;
 }
 
-function createObjectToDb($data, $db) {
+function createObjectToDb($data, $db) 
+{
 	$map = ["DVD" => 'makeDVD', "Book" => 'makeBook', "Furniture" => 'makeFurniture'];
 	$newProduct = $map[$data['product_type']]($data);
 	$newProduct->toDB();
@@ -44,17 +45,20 @@ function createObjectToDb($data, $db) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$data = json_decode(file_get_contents('php://input'), true);  //returns body of post request
 	createObjectToDb($data, $db); //insert to database calls automatically upon render
+	echo json_encode('successfully added');
 } else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		echo $db->select();
 } else if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
 		$data = json_decode(file_get_contents('php://input'), true);
 		$db->deleteThem($data);
-		echo json_encode('success?');
+		echo json_encode('successfully deleted');
+} else if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+		$data = json_decode(file_get_contents('php://input'), true);
+		echo json_encode($db->skuExist($data));
 } else {
   // Return an error message
   echo 'Invalid request method';
 }
-
 
 
 

@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import { Outlet, Link } from 'react-router-dom';
 
-const NavigationAdd = ({ }) => {
-
+const NavigationAdd = ({ submitForm }) => {
   return (
-    <nav className="navigation-add">
+    <div className="navigation-add">
       <h1>Add Product </h1>
       <div className="buttons">
-        <button id="Save" onclick="submitform()">Save</button>
+        <button id="Save" onClick={(e) =>submitForm(e)}>Save</button>
         <Link to={`/`}><button id="goback">CANCEL</button></Link>
       </div>
-    </nav>
+    </div>
   )
 }
 
