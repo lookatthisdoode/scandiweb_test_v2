@@ -1,0 +1,5 @@
+@font-face { font-family: Cabin; src: url('../fonts/Cabin-Regular.ttf'); }
+@font-face { font-family: CabinB; font-weight: bold; src: url('../fonts/Cabin-Bold.ttf');}
+@font-face { font-family: OverpassR; src: url('../fonts/Overpass-Regular.ttf'); }
+@font-face { font-family: OverpassM; src: url('../fonts/Overpass-Medium.ttf'); }
+@font-face { font-family: OverpassB; font-weight: bold; src: url('/fonts/Overpass-Bold.ttf');}

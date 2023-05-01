@@ -20,14 +20,6 @@ class DVD extends Product
         $this->size = $d;
     }
 
-    public function toHTML()
-    {
-        echo "SKU: " . mb_strtoupper($this->sku) . "<br>";
-        echo "Type: DVD<br>";
-        echo "Name: " . $this->name . " <br>";
-        echo "Price: " . $this->price . " $<br>";
-        echo "Size: " . $this->size . " Mb<br>";
-    }
 
     public function toDB()
     {   

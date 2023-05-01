@@ -10,9 +10,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/fonts.css">
         <link rel="icon" href="icon.png">
-        <script type="text/javascript" src="script.js"></script>
         <title>test_scandiweb</title>
         <script type="text/javascript">
             
@@ -21,6 +21,7 @@
     </head>
 
     <body>
-        </div id="root"></div>
+        <div id="root"></div>
     </body>
+        <script type="text/javascript" src="js/main.js"></script>
 </html>

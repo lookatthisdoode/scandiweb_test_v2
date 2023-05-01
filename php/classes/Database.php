@@ -3,25 +3,22 @@
 class Database
 {
 
-    // private $host = 'localhost';
-    // private $user = 'id19573064_scandiweb';
-    // private $pwd = '\MGHcOh0NSUL)#|(';
-    // private $dbase = 'id19573064_test_database';
-    // private $table = 'scandiweb_products';
-
     private $host = 'localhost';
-    private $user = 'andrei';
-    private $pwd = 'andrei';
-    private $dbase = 'scandiweb';
+    private $user = 'id19573064_scandiweb';
+    private $pwd = '\MGHcOh0NSUL)#|(';
+    private $dbase = 'id19573064_test_database';
     private $table = 'scandiweb_products';
+
+    // private $host = 'localhost';
+    // private $user = 'andrei';
+    // private $pwd = 'andrei';
+    // private $dbase = 'scandiweb';
+    // private $table = 'scandiweb_products';
 
 
     public function __construct()
     {
         $this->conn = mysqli_connect($this->host , $this->user , $this->pwd , $this->dbase);
-        if (!$this->conn) {
-            echo 'nepoluchilos podcluchisa';
-        } //не работает проверялка
     }
 
 
@@ -57,6 +54,7 @@ class Database
     public function deleteThem (array $ids)
     {   
         $idsToDelete = implode(',', $ids); //convert to string
+        //couldve just use json decode i guess?
         $sql = "DELETE FROM scandiweb_products WHERE id IN ( $idsToDelete )";
         mysqli_query($this->conn, $sql);
         $this->arrangeId();

@@ -9,7 +9,7 @@
 @font-face { font-family: CabinB; font-weight: bold; src: url('../php/fonts/Cabin-Bold.ttf');}
 @font-face { font-family: OverpassR; src: url('../php/fonts/Overpass-Regular.ttf'); }
 @font-face { font-family: OverpassM; src: url('../php/fonts/Overpass-Medium.ttf'); }
-@font-face { font-family: OverpassB; font-weight: bold; src: url('../php/fonts/Overpass-Bold.ttf');}
+@font-face { font-family: OverpassB; font-weight: bold; src: url('/php/fonts/Overpass-Bold.ttf');}
 
 #root {
   display: flex;

@@ -24,16 +24,6 @@ class Furniture extends Product
         $this->height = $f;
     }
 
-    public function toHTML()
-    {
-        echo "SKU: " . mb_strtoupper($this->sku) . "<br>";
-        echo "Type: Furniture <br>";
-        echo "Name: " . $this->name . "<br>";
-        echo "Price: " . $this->price . " $<br>";
-        echo "Width: " . $this->width . " Cm<br>";
-        echo "Length: " . $this->length . " Cm<br>";
-        echo "Height: " . $this->height . " Cm<br>";
-    }
 
     public function toDB()
     {

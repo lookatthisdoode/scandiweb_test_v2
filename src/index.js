@@ -9,10 +9,10 @@ import reportWebVitals from './reportWebVitals';
 
 //on deply its '/request.php'
 //dev is 'http://localhost/request.php'
-const apiUrl = 'http://localhost/request.php'
-//on deploy change it to 'same' origin
+const apiUrl = '/request.php'
+//on deploy change it to 'same-origin'
 //dev is cors
-const fetchMode = 'cors'
+const fetchMode = 'same-origin'
 
 const router = createBrowserRouter([
   {
