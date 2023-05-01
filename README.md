@@ -1,10 +1,10 @@
 # Test task for Scandiweb
 
-Using PHP backend and React frontend with client-side routing 
+this is complete working version that i put on hosting
+it uses ###index.php as entry point that serves ####root
 
 ## Available Scripts
 
-In the project directory, you can run:
 
 ### `npm start`
 
