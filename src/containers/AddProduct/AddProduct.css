@@ -1,0 +1,108 @@
+
+.addproduct {
+    background-color: var(--cinnabar);
+    width: 80%;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addproduct h1 {
+    color: var(--ivory);
+    text-shadow: 1px 2px var(--onyx);
+}
+.navigation-add{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.navigation-add .buttons {
+    display: flex;
+    gap: 20px;
+}
+
+
+.navigation-add .buttons > * {
+    width: 170px;
+    text-align: center;
+    background: var(--cinnaban);
+    border: 3px solid var(--ivory);
+    padding: 5px 0;
+    border-radius:999px;
+    margin-top: 10px;
+    color: var(--ivory);
+}
+
+.navigation-add .buttons a button {
+    border: none;
+}
+
+.navigation-add .buttons button , .navigation-add .buttons a button {
+    font-family: OverpassB;
+    background: none;
+    color: var(--ivory);
+    font-size: 1.2em;
+}
+
+
+.navigation-add .buttons > button:hover, a:hover {
+    scale: 1.025;
+}
+
+.divider-add {
+    width: 60%;
+    height: 5px;
+    border-radius: 5px;
+    background-color: var(--onyx);
+    margin: 10px auto 20px;
+}
+
+.formBody {
+    width:60%;
+    display: flex;
+    flex-direction: column;
+    color:var(--ivory);
+    font-size: 1.3em;
+}
+
+.formBody input {
+    display: flex;
+    box-shadow: 2px 2px 0 2px var(--onyx);
+    width: 30%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    padding: 0 5px;
+    margin: 10px 0;
+    color:var(--onyx);
+    background-color: var(--ivory);
+}
+
+
+#error {
+    color:darkred;
+    width: 31%;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+#product_form {
+    color:var(--third-color);
+}
+
+select {
+    box-shadow: 2px 2px 0 2px var(--onyx);
+    color:var(--onyx);
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 0px;
+    margin: 5px 0;
+}

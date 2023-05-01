@@ -1,0 +1,30 @@
+:root {
+  --ivory: rgb(246, 247, 235);
+  --cinnabar: rgb(233, 79, 55);
+   --onyx: rgb(57, 62, 65);
+  --steel-blue: rgb(63, 136, 197);
+}
+
+@font-face { font-family: Cabin; src: url('../php/fonts/Cabin-Regular.ttf'); }
+@font-face { font-family: CabinB; font-weight: bold; src: url('../php/fonts/Cabin-Bold.ttf');}
+@font-face { font-family: OverpassR; src: url('../php/fonts/Overpass-Regular.ttf'); }
+@font-face { font-family: OverpassM; src: url('../php/fonts/Overpass-Medium.ttf'); }
+@font-face { font-family: OverpassB; font-weight: bold; src: url('/php/fonts/Overpass-Bold.ttf');}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  margin: 0;
+  font-family: OverpassB, Overpass, 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--ivory);
+  width: 100%;
+}
+
