@@ -3,17 +3,17 @@
 class Database
 {
 
-    private $host = 'localhost';
-    private $user = 'id19573064_scandiweb';
-    private $pwd = '\MGHcOh0NSUL)#|(';
-    private $dbase = 'id19573064_test_database';
-    private $table = 'scandiweb_products';
-
     // private $host = 'localhost';
-    // private $user = 'andrei';
-    // private $pwd = 'andrei';
-    // private $dbase = 'scandiweb';
+    // private $user = 'id19573064_scandiweb';
+    // private $pwd = '\MGHcOh0NSUL)#|(';
+    // private $dbase = 'id19573064_test_database';
     // private $table = 'scandiweb_products';
+
+    private $host = 'localhost';
+    private $user = 'andrei';
+    private $pwd = 'andrei';
+    private $dbase = 'scandiweb';
+    private $table = 'scandiweb_products';
 
 
     public function __construct()
