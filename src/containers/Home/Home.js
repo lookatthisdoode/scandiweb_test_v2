@@ -56,10 +56,11 @@ class Home extends React.Component {
       console.log(responce)
       })
     .catch(error => {
-    console.error(error);
+    console.error(error)
     })
-    //reloads the page to get new array of products from DB
-    window.location.reload(false); //worked like a charm
+    .finally(() => {
+      window.location.reload(false)
+    })
   }
 
   //jsut gets all products upon first rendering
