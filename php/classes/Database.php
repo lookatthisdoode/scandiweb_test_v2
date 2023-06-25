@@ -1,8 +1,11 @@
 <?php
 
+
+//model
+//interacts with Database directly, performs CRUD operations
+
 class Database
 {
-
     // private $host = 'localhost';
     // private $user = 'id19573064_scandiweb';
     // private $pwd = '\MGHcOh0NSUL)#|(';
@@ -21,8 +24,8 @@ class Database
         $this->conn = mysqli_connect($this->host , $this->user , $this->pwd , $this->dbase);
     }
 
-
-    public function select()    // new, already returning a json
+    //getter, gets all products data, already returning a json
+    public function select()    
     {
         $result = mysqli_query($this->conn, "select * from scandiweb_products");
         $rows = array();
@@ -32,14 +35,14 @@ class Database
         return json_encode($rows);
     }
 
-
+    //basic insert
     public function insert($sql)
     {   
         mysqli_query($this->conn, $sql);
         $this->arrangeId();
     }
 
-    
+    // arranges is to corretly display checkboxes
     public function arrangeId()
     {
         $counter = 1;
@@ -50,7 +53,7 @@ class Database
         }
     }
 
-
+    //deletes checked items
     public function deleteThem (array $ids)
     {   
         $idsToDelete = implode(',', $ids); //convert to string
@@ -60,7 +63,7 @@ class Database
         $this->arrangeId();
     }
 
-
+    //checks if SKU exist (for my form validator)
     public function skuExist($sku)
     {
         $data = json_decode($this->select(), true);

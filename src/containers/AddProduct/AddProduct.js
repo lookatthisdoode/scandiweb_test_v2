@@ -3,9 +3,6 @@ import { Navigate } from "react-router-dom";
 import NavigationAdd from '../../components/NavigationAdd/NavigationAdd';
 import './AddProduct.css';
 
-//const apiurl = '/request.php'
-//const apiurl = 'http://localhost/request.php'
-
 class AddProduct extends React.Component {
   constructor(props) {
     super();
